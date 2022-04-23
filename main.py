@@ -18,6 +18,15 @@ async def on_ready():
     #await asyncio.sleep(5)
     await bot.change_presence(activity=discord.Game(name='with 🍦'))
 
+    for fn in os.listdir("./cogs"):
+        if fn.endswith(".py"):
+            try:
+                bot.load_extension(f"commands.{fn[:-3]}")
+                print(f"loaded {fn[:-3]} cog")
+
+            except Exception as e:
+                print(e)
+
 
 token = discordToken()
 bot.run(token)

@@ -17,8 +17,13 @@ class Ice(commands.Cog):
         
 
     @commands.command()
-    async def test(self, ctx):
-        await ctx.send("hello world")
+    async def make(self, ctx):
+        def check(reaction, user):
+            return user == ctx.author
+    
+        reaction, user = await self.bot.wait_for('reaction_add', timeout=60.0, check=check)
+
+        print(reaction)
         
     
 def setup(bot):

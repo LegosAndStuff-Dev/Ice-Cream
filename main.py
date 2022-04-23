@@ -6,7 +6,7 @@ from discord.ext import commands
 client = discord.Client()
 
 # the bot prefix
-bot = commands.Bot(command_prefix="ice!", case_insensitive=True)
+bot = commands.Bot(command_prefix="i!", case_insensitive=True)
 bot.remove_command("help")
 
 # start
@@ -21,7 +21,7 @@ async def on_ready():
     for fn in os.listdir("./cogs"):
         if fn.endswith(".py"):
             try:
-                bot.load_extension(f"commands.{fn[:-3]}")
+                bot.load_extension(f"cogs.{fn[:-3]}")
                 print(f"loaded {fn[:-3]} cog")
 
             except Exception as e:

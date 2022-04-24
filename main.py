@@ -2,6 +2,8 @@ import discord
 import os
 from discordToken import discordToken
 from discord.ext import commands
+from Disecon import start
+from Disecon import *
 
 client = discord.Client()
 
@@ -17,6 +19,8 @@ async def on_ready():
     #await bot.change_presence(activity=discord.Game(name="Just started up!"))
     #await asyncio.sleep(5)
     await bot.change_presence(activity=discord.Game(name='with 🍦'))
+
+    #start()
 
     for fn in os.listdir("./cogs"):
         if fn.endswith(".py"):

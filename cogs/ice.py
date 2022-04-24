@@ -27,8 +27,6 @@ class Ice(commands.Cog):
         def check(reaction, user):
             return user == ctx.author
 
-        
-
         reactions = ["💩", "🍓", "🍦"]
         ice = ["", "", ""]
 

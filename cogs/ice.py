@@ -7,8 +7,6 @@ from discord.ext.commands import BucketType
 import asyncio
 import random
 import math
-from dislash.slash_commands import slash_command
-from dislash import *
 import psutil
 import time
 from Disecon import *

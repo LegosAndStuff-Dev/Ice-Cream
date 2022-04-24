@@ -40,7 +40,6 @@ class Ice(commands.Cog):
         numScopes = random.randint(1, 3)
 
         for i in range(3):
-            print(i)
             whichIce = random.randint(1, 3)
             
             if whichIce == 1:
@@ -71,8 +70,6 @@ class Ice(commands.Cog):
         for i in range(3):
             reaction, user = await self.bot.wait_for('reaction_add', timeout=60.0, check=check)
 
-            print(reaction)
-
             await msg.remove_reaction(reaction, user)
 
             if f'{reaction}' == u'🍦':
@@ -93,7 +90,6 @@ class Ice(commands.Cog):
             elif ice[i] == "Strawberry Scope":
                 botChoice = 3
 
-            print(f"{userChoice} {botChoice}")
             if makeIceCreamCorrect == False:
                 makeIceCreamCorrect = False
 

@@ -8,7 +8,7 @@ from Disecon import *
 client = discord.Client()
 
 # the bot prefix
-bot = commands.Bot(command_prefix="i!", case_insensitive=True)
+bot = commands.Bot(command_prefix="ice ", case_insensitive=True)
 bot.remove_command("help")
 
 # start

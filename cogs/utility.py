@@ -89,7 +89,7 @@ class Utility(commands.Cog):
 
         else:
             embed: discord.Embed = discord.Embed(
-                tilte="Bug Report",
+                title="Bug Report",
                 description=f"<@!{user_id}> Has reported a bug!!",
                 color=discord.Color.green() 
             )

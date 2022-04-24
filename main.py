@@ -4,6 +4,7 @@ import datetime
 from discordToken import discordToken
 from discord.ext.commands import BucketType
 from discord.ext import commands
+from functions.database import *
 from Disecon import start
 from Disecon import *
 

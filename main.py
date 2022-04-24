@@ -51,7 +51,7 @@ async def on_command_error(ctx, error):
     elif isinstance(error, commands.CommandNotFound):
         embed: discord.Embed = discord.Embed(
             title="Invalid Command",
-            description="You gave a invaild command\nPlease try doing `d/help` to see some of the commands.\n\nIf you need more support pelase join the support server where we can help you.\n[Support Server](https://discord.gg/KxPuFvazuF)",
+            description="You gave a invalid command\nPlease try doing `d/help` to see some of the commands.\n\nIf you need more support please join the support server where we can help you.\n[Support Server](https://discord.gg/KxPuFvazuF)",
             color=discord.Color.green()
         )
 

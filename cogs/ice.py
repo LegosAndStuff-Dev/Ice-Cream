@@ -11,6 +11,7 @@ from dislash.slash_commands import slash_command
 from dislash import *
 import psutil
 import time
+from Disecon import *
 
 
 class Ice(commands.Cog):
@@ -54,7 +55,7 @@ class Ice(commands.Cog):
 
             elif whichIce == 3:
                 ice[i] = "Strawberry Scope"
-                cost =+ 7
+                cost += 7
 
 
         embed: discord.Embed = discord.Embed(
@@ -104,7 +105,22 @@ class Ice(commands.Cog):
             elif botChoice != userChoice:
                 makeIceCreamCorrect = False
 
-        print(makeIceCreamCorrect)
+        if makeIceCreamCorrect == True:
+            bank = money.bank(amount=cost, user_ID=user.id)
+            bank.add()
+
+            await ctx.send(f"You make the ice cream correctly!\n{cost} coins were deposited into your bank!")
+
+
+        elif makeIceCreamCorrect == False:
+            bank = money.bank(amount=5, user_ID=user.id)
+            bank.sub()
+
+            await ctx.send("You make the ice cream wrong\n5 coins will be taken away from your bank.")
+
+        else:
+            await ctx.send("There was an error that happened")
+
 
             
     

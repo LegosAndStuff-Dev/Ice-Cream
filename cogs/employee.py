@@ -14,7 +14,7 @@ class Employee(commands.Cog):
 
     @commands.command()
     async def day(self, ctx):
-        pay = 800
+        pay = 850
         cost = 0
 
         for c in range(50):
@@ -31,13 +31,13 @@ class Employee(commands.Cog):
                     cost += 7
 
         embed: discord.Embed = discord.Embed(
-            description=f"An employee made Ice Cream for the day.\n\nCost - {cost}\nPayroll - 800"
+            description=f"An employee made Ice Cream for the day.\n\nCost - {cost}\nPayroll - {pay}"
         )
 
         bank = money.bank(amount=cost, user_ID=ctx.message.author.id)
         bank.add()
 
-        bank = money.bank(amount=800, user_ID=ctx.message.author.id)
+        bank = money.bank(amount=pay, user_ID=ctx.message.author.id)
         bank.sub()
 
         await ctx.send(embed=embed)

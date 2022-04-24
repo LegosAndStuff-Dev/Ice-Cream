@@ -12,6 +12,7 @@ class Employee(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    @commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def day(self, ctx):
         pay = 850

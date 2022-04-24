@@ -3,43 +3,36 @@ import sqlite3
 
 
 def database(name: str):
-    if name.lower() == "shop items":
-        conn = sqlite3.connect("shop_items.db")
+    if name.lower() == "ice cream advertise":
+        conn = sqlite3.connect("iceCream.db")
         c = conn.cursor()
-        
-        try:
-            c.execute("""CREATE TABLE shop_items (
-                name text,
-                price int,
-                option text,
-                use text,
-                visible text
-                
-            )""")
-            
-        except:
-            print("Shop Items was not mad")
-            pass
-        
-        conn.commit()
-        conn.close()
 
-    elif name.lower() == "items own":
-        conn = sqlite3.connect("shop.db")
-        c = conn.cursor()
-        
         try:
-            c.execute("""CREATE TABLE items_own (
-                user_id text,
-                item_name text,
-                amount text 
+            c.execute("""CREATE TABLE advertise (
+                user_ID int,
+                advertise int
             
             )""")
-            
-            print("Items Own table made")
+
+            print("advertise table made")
             
         except:
-            print("items owner table not made")
+            pass
+
+    elif name.lower() == "ice cream location":
+        conn = sqlite3.connect("iceCream.db")
+        c = conn.cursor()
+
+        try:
+            c.execute("""CREATE TABLE location (
+                user_ID int,
+                locations int
+            
+            )""")
+
+            print("location table made")
+            
+        except:
             pass
 
     elif name.lower() == "economy":

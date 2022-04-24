@@ -9,6 +9,8 @@ from dislash.slash_commands import slash_command
 from dislash import *
 import psutil
 import time
+from functions.dev import developers
+from functions.version import version
 
 
 class Utility(commands.Cog):
@@ -43,10 +45,10 @@ class Utility(commands.Cog):
     #Bot Command -bot
     @commands.command()
     async def bot(self, ctx):
-        bot_version = "0.0.0"
+        bot_version = version()
         servers = len(self.bot.guilds)
         members = sum([len(guild.members) for guild in self.bot.guilds])
-        dev = "LegosAndStuff#0501"
+        dev = developers()
 
         embed: discord.Embed = discord.Embed(
             title="Bot Infomation",

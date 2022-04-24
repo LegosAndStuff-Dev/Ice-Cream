@@ -26,10 +26,17 @@ class Ice(commands.Cog):
         def check(reaction, user):
             return user == ctx.author
 
+        
+
         reactions = ["💩", "🍓", "🍦"]
         ice = ["", "", ""]
 
         cost = 0
+
+        userChoice = 0
+        botChoice = 0
+
+        makeIceCreamCorrect = True
 
         numScopes = random.randint(1, 3)
 
@@ -68,7 +75,38 @@ class Ice(commands.Cog):
             print(reaction)
 
             await msg.remove_reaction(reaction, user)
+
+            if f'{reaction}' == u'🍦':
+                userChoice = 1
+
+            elif f'{reaction}' == u'💩':
+                userChoice = 2
+
+            elif f'{reaction}' == u'🍓':
+                userChoice = 3
         
+            if ice[i] == "Vanilla Scope":
+                botChoice = 1
+
+            elif ice[i] == "Choclate Scope":
+                botChoice = 2
+
+            elif ice[i] == "Strawberry Scope":
+                botChoice = 3
+
+            print(f"{userChoice} {botChoice}")
+            if makeIceCreamCorrect == False:
+                makeIceCreamCorrect = False
+
+            elif botChoice == userChoice:
+                makeIceCreamCorrect = True
+
+            elif botChoice != userChoice:
+                makeIceCreamCorrect = False
+
+        print(makeIceCreamCorrect)
+
+            
     
 def setup(bot):
 	bot.add_cog(Ice(bot)) 

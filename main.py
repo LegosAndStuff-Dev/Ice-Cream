@@ -1,6 +1,8 @@
-import discord
 import os
+import discord
+import datetime
 from discordToken import discordToken
+from discord.ext.commands import BucketType
 from discord.ext import commands
 from Disecon import start
 from Disecon import *
@@ -30,6 +32,34 @@ async def on_ready():
 
             except Exception as e:
                 print(e)
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+
+        cooldown = int(error.retry_after)
+
+        convert = str(datetime.timedelta(seconds = cooldown))
+
+        embed: discord.Embed = discord.Embed(
+            title="Cooldown",
+            description=f"The cooldown will last {convert}"
+        )
+
+        await ctx.send(embed=embed)
+
+    elif isinstance(error, commands.CommandNotFound):
+        embed: discord.Embed = discord.Embed(
+            title="Invalid Command",
+            description="You gave a invaild command\nPlease try doing `d/help` to see some of the commands.\n\nIf you need more support pelase join the support server where we can help you.\n[Support Server](https://discord.gg/KxPuFvazuF)",
+            color=discord.Color.green()
+        )
+
+        await ctx.send(embed=embed)
+
+    else:
+        print("===============")
+        print(error)
 
 
 token = discordToken()

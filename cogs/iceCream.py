@@ -1,5 +1,3 @@
-from shutil import which
-from turtle import title
 import discord
 import os
 from discord.ext import commands
@@ -10,6 +8,7 @@ import math
 import psutil
 import time
 from Disecon import *
+import sqlite3
 
 
 class Ice(commands.Cog):
@@ -114,7 +113,27 @@ class Ice(commands.Cog):
             await ctx.send("There was an error that happened")
 
 
-            
-    
+    @commands.group(invoke_without_command = True)
+    async def advertise(self, ctx):
+        pass
+
+    @advertise.command()
+    async def buy(self, ctx):
+        pass
+
+    @advertise.command()
+    async def use(self, ctx):
+        pass
+
+
+    @commands.group(invoke_without_command = True)
+    async def location(self, ctx):
+        pass
+
+    @location.command()
+    async def buy(self, ctx):
+        pass
+
+
 def setup(bot):
 	bot.add_cog(Ice(bot)) 

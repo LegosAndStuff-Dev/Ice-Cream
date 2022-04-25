@@ -24,6 +24,8 @@ async def on_ready():
     await bot.change_presence(activity=discord.Game(name='with 🍦'))
 
     #start()
+    #database("ice cream advertise")
+    #database("ice cream location")
 
     for fn in os.listdir("./cogs"):
         if fn.endswith(".py"):

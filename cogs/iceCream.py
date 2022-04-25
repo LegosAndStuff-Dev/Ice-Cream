@@ -122,7 +122,7 @@ class Ice(commands.Cog):
 
     @advertise.command()
     async def buy(self, ctx):
-        pass
+        cost = 1200
 
     @advertise.command()
     async def use(self, ctx):
@@ -135,7 +135,7 @@ class Ice(commands.Cog):
 
     @location.command()
     async def buy(self, ctx):
-        pass
+        cost = 10000
 
 
 def setup(bot):

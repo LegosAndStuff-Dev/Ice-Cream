@@ -117,15 +117,14 @@ class Ice(commands.Cog):
     async def inventory(self, ctx):
         pass
 
-    @commands.group(pass_context=True)
+    @commands.group(invoke_without_command=True)
     async def advertise(self, ctx):
         pass
         #if ctx.invoked_subcommand is None:
         #    await ctx.send('Invalid sub command passed...')
 
-
-    @advertise.command()
-    async def buy(self, ctx):
+    @advertise.command(name="buy")
+    async def advertise_buy(self, ctx):
         print("hi")
 
     @advertise.command()
@@ -137,8 +136,8 @@ class Ice(commands.Cog):
     async def location(self, ctx):
         pass
 
-    @location.command()
-    async def buy(self, ctx):
+    @location.command(name="buy")
+    async def location_buy(self, ctx):
         cost = 10000
 
 

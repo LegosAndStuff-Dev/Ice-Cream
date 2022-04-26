@@ -9,6 +9,7 @@ from jinja2 import pass_context
 import psutil
 import time
 from Disecon import *
+from functions.database import *
 import sqlite3
 
 
@@ -125,7 +126,26 @@ class Ice(commands.Cog):
 
     @advertise.command(name="buy")
     async def advertise_buy(self, ctx):
-        print("hi")
+        cost = 1200
+
+        view = results.view(user_ID=ctx.message.author.id)
+        bankCoins = view.bank()
+
+        if bankCoins >= cost:
+            addAdvertise(ctx.message.author.id)
+
+            bank = money.bank(amount=cost, user_ID=ctx.message.author.id)
+            bank.sub()
+
+            embed: discord.Embed = discord.Embed(
+                title="Advertise Buy",
+                description="You successfully bought an advertisement",
+            )
+
+            await ctx.send(embed=embed)
+
+        else:
+            await ctx.send("You don't have enough coins to buy an advertisement.")
 
     @advertise.command()
     async def use(self, ctx):

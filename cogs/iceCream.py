@@ -5,6 +5,7 @@ from discord.ext.commands import BucketType
 import asyncio
 import random
 import math
+from jinja2 import pass_context
 import psutil
 import time
 from Disecon import *
@@ -116,17 +117,20 @@ class Ice(commands.Cog):
     async def inventory(self, ctx):
         pass
 
-    @commands.group(invoke_without_command = True)
+    @commands.group(pass_context=True)
     async def advertise(self, ctx):
         pass
+        #if ctx.invoked_subcommand is None:
+        #    await ctx.send('Invalid sub command passed...')
+
 
     @advertise.command()
     async def buy(self, ctx):
-        cost = 1200
+        print("hi")
 
     @advertise.command()
     async def use(self, ctx):
-        pass
+        print("hi")
 
 
     @commands.group(invoke_without_command = True)

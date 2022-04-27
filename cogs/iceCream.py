@@ -1,3 +1,4 @@
+from tabnanny import check
 import discord
 import os
 from discord.ext import commands
@@ -10,6 +11,7 @@ import psutil
 import time
 from Disecon import *
 from functions.database import *
+from functions.cost import *
 import sqlite3
 
 
@@ -149,7 +151,19 @@ class Ice(commands.Cog):
 
     @advertise.command()
     async def use(self, ctx):
-        print("hi")
+        cost = getCostWithLocation(ctx.message.author.id)
+        checkError = removeAdvertise(ctx.message.author.id)
+
+        if checkError == "No Row":
+            await ctx.send("You need to buy an advertisement to be able to use this command.")
+
+        else: 
+            embed: discord.Embed = discord.Embed(
+                title="Advertisement Used",
+                description=f"You used one advertisement and you got {cost}"
+            )
+
+            await ctx.send(embed=embed)
 
 
     @commands.group(invoke_without_command = True)

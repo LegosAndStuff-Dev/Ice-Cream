@@ -87,7 +87,54 @@ def addAdvertise(userID: int):
         conn.commit()
         conn.close()
 
+def removeAdvertise(userID: int):
+    conn = sqlite3.connect("iceCream.db")
+    c = conn.cursor()
+
+    c.execute(f"SELECT * FROM advertise WHERE user_ID = {userID}")
+    items = c.fetchall()
+
+    none = str(items)
+
+    if none == "[]":
+        return "No Row"
+
+    else:
+        for item in items:
+            amount = int(item[1])
+
+        if amount == 0:
+            return "No Row"
+
+        else:
+            amount -= 1
+
+            c.execute(f"""UPDATE advertise SET advertise = {amount}
+                        WHERE user_ID = {userID}  
+                    """)
+
+            conn.commit()
+            conn.close()
+
+def getLocationNum(userID: int):
+    conn = sqlite3.connect("iceCream.db")
+    c = conn.cursor()
+
+    c.execute(f"SELECT * FROM location WHERE user_ID={userID}")
+
+    items = c.fetchall()
+    none = str(items)
+
+    if none == "[]":
+        locationNum = 0
+
+    else:
+        for item in items:
+            locationNum = int(item[1])
+
         
+    return locationNum
+
 
         
     

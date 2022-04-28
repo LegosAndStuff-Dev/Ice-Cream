@@ -135,6 +135,30 @@ def getLocationNum(userID: int):
         
     return locationNum
 
+def buyLocation(userID: int):
+    conn = sqlite3.connect("iceCream.db")
+    c = conn.cursor()
 
-        
-    
+    c.execute(f"SELECT * FROM location WHERE user_ID = {userID}")
+    items = c.fetchall()
+
+    none = str(items)
+
+    if none == "[]":
+        c.execute(f"INSERT INTO location VALUES ({userID}, 1)")
+
+        conn.commit()
+        conn.close()
+
+    else:
+        for item in items:
+            amount = int(item[1])
+
+        amount += 1
+
+        c.execute(f"""UPDATE location SET locations = {amount}
+                    WHERE user_ID = {userID}  
+                """)
+
+        conn.commit()
+        conn.close()

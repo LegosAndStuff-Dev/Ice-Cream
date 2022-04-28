@@ -7,7 +7,7 @@ from functions.database import *
 def getCostWithLocation(userID: int):
     locationNum = getLocationNum(userID)
 
-    #locationNum += 1
+    locationNum += 1
     cost = 0
     payroll = locationNum * 850
 

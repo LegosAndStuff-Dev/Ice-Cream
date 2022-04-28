@@ -128,7 +128,7 @@ class Ice(commands.Cog):
 
     @advertise.command(name="buy")
     async def advertise_buy(self, ctx):
-        cost = 1200
+        cost = 100
 
         view = results.view(user_ID=ctx.message.author.id)
         bankCoins = view.bank()
@@ -162,6 +162,9 @@ class Ice(commands.Cog):
                 title="Advertisement Used",
                 description=f"You used one advertisement and you got {cost}"
             )
+
+            bank = money.bank(amount=cost, user_ID=ctx.message.author.id)
+            bank.add()
 
             await ctx.send(embed=embed)
 

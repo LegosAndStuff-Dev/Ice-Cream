@@ -175,7 +175,23 @@ class Ice(commands.Cog):
 
     @location.command(name="buy")
     async def location_buy(self, ctx):
-        cost = 10000
+        cost = 100
+
+        view = results.view(ctx.message.author.id)
+        bankCoins = view.bank()
+
+        if bankCoins >=  cost:
+            buyLocation(ctx.message.author.id)
+
+            bank = money.bank(amount=cost, user_ID=ctx.message.author.id)
+            bank.sub()
+
+            await ctx.send("You bought one location")
+
+        else:
+            await ctx.send("You don't have enough money to buy another location")
+
+
 
 
 def setup(bot):

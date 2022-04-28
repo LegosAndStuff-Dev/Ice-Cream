@@ -128,7 +128,7 @@ class Ice(commands.Cog):
 
     @advertise.command(name="buy")
     async def advertise_buy(self, ctx):
-        cost = 100
+        cost = 1200
 
         view = results.view(user_ID=ctx.message.author.id)
         bankCoins = view.bank()
@@ -175,7 +175,7 @@ class Ice(commands.Cog):
 
     @location.command(name="buy")
     async def location_buy(self, ctx):
-        cost = 100
+        cost = 10000
 
         view = results.view(ctx.message.author.id)
         bankCoins = view.bank()

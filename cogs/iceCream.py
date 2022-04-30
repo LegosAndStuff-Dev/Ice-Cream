@@ -111,7 +111,7 @@ class Ice(commands.Cog):
             bank = money.bank(amount=cost, user_ID=user.id)
             bank.sub()
 
-            await ctx.send("You make the ice cream wrong\n5 coins will be taken away from your bank.")
+            await ctx.send(f"You make the ice cream wrong\n{cost} coins will be taken away from your bank.")
 
         else:
             await ctx.send("There was an error that happened")

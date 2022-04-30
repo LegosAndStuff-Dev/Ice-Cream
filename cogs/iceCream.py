@@ -122,9 +122,14 @@ class Ice(commands.Cog):
 
     @commands.group(invoke_without_command=True)
     async def advertise(self, ctx):
-        pass
-        #if ctx.invoked_subcommand is None:
-        #    await ctx.send('Invalid sub command passed...')
+        numAds = getAds(ctx.message.author.id)
+
+        embed: discord.Embed = discord.Embed (
+            title="Advertisements",
+            description=f"You own {numAds} advertisement(s)"
+        )
+
+        await ctx.send(embed=embed)
 
     @advertise.command(name="buy")
     async def advertise_buy(self, ctx):

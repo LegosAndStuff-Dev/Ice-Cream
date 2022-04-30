@@ -38,7 +38,15 @@ class Utility(commands.Cog):
     @commands.command()
     async def invite(self, ctx):
         await ctx.send("Invite comming soon")
-    
+
+    @commands.command()
+    async def github(self, ctx):
+        embed: discord.Embed = discord.Embed(
+            title="Github Link",
+            description="https://github.com/LegosAndStuff-Dev/Ice-Cream"
+        )
+
+        await ctx.send(embed=embed)
 
     #Ping Command -ping
     @commands.command(aliases=['latency', 'lag'])

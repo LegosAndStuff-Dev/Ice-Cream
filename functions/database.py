@@ -162,3 +162,22 @@ def buyLocation(userID: int):
 
         conn.commit()
         conn.close()
+
+def getAds(userID: int):
+    conn = sqlite3.connect("iceCream.db")
+    c = conn.cursor()
+
+    c.execute(f"SELECT * FROM advertise WHERE user_ID={userID}")
+
+    items = c.fetchall()
+    none = str(items)
+
+    if none == "[]":
+        num = 0
+
+    else:
+        for item in items:
+            num = int(item[1])
+
+        
+    return num

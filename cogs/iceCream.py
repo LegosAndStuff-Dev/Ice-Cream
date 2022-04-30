@@ -176,7 +176,16 @@ class Ice(commands.Cog):
 
     @commands.group(invoke_without_command = True)
     async def location(self, ctx):
-        pass
+        num = getLocationNum(ctx.message.author.id)
+
+        num += 1
+
+        embed: discord.Embed = discord.Embed(
+            title="Location",
+            description=f"You own {num} location(s)"
+        )
+
+        await ctx.send(embed=embed)
 
     @location.command(name="buy")
     async def location_buy(self, ctx):

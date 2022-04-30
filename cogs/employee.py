@@ -15,7 +15,7 @@ class Employee(commands.Cog):
     #@commands.cooldown(1, 60, commands.BucketType.user)
     @commands.command()
     async def day(self, ctx):
-        pay = 850
+        pay = 875
         cost = 0
 
         for c in range(50):

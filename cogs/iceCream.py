@@ -116,10 +116,6 @@ class Ice(commands.Cog):
         else:
             await ctx.send("There was an error that happened")
 
-    @commands.command(aliases=['inv'])
-    async def inventory(self, ctx):
-        pass
-
     @commands.group(invoke_without_command=True)
     async def advertise(self, ctx):
         numAds = getAds(ctx.message.author.id)

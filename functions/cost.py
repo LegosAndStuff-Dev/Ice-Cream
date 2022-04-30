@@ -9,7 +9,7 @@ def getCostWithLocation(userID: int):
 
     locationNum += 1
     cost = 0
-    payroll = locationNum * 850
+    payroll = locationNum * 1000
 
     for i in range(locationNum):
         for ice in range(75):

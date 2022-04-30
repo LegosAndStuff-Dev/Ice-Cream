@@ -36,33 +36,33 @@ async def on_ready():
             except Exception as e:
                 print(e)
 
-#@bot.event
-#async def on_command_error(ctx, error):
-    #if isinstance(error, commands.CommandOnCooldown):
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
 
-        #cooldown = int(error.retry_after)
+        cooldown = int(error.retry_after)
 
-        #convert = str(datetime.timedelta(seconds = cooldown))
+        convert = str(datetime.timedelta(seconds = cooldown))
 
-        #embed: discord.Embed = discord.Embed(
-        #    title="Cooldown",
-        #    description=f"The cooldown will last {convert}"
-        #)
+        embed: discord.Embed = discord.Embed(
+            title="Cooldown",
+            description=f"The cooldown will last {convert}"
+        )
 
-        #await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
 
-    #elif isinstance(error, commands.CommandNotFound):
-        #embed: discord.Embed = discord.Embed(
-        #    title="Invalid Command",
-        #    description="You gave a invalid command\nPlease try doing `d/help` to see some of the commands.\n\nIf you need more support please join the support server where we can help you.\n[Support Server](https://discord.gg/KxPuFvazuF)",
-        #    color=discord.Color.green()
-        #)
+    elif isinstance(error, commands.CommandNotFound):
+        embed: discord.Embed = discord.Embed(
+            title="Invalid Command",
+            description="You gave a invalid command\nPlease try doing `d/help` to see some of the commands.\n\nIf you need more support please join the support server where we can help you.\n[Support Server](https://discord.gg/KxPuFvazuF)",
+            color=discord.Color.green()
+        )
 
-        #await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
 
-    #else:
-        #print("===============")
-        #print(error)
+    else:
+        print("===============")
+        print(error)
 
 
 token = discordToken()
